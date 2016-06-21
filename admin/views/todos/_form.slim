@@ -1,0 +1,19 @@
+- error = @todo.errors.key?(:title) && @todo.errors[:title].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :title, :class => 'control-label'
+  div class='controls'
+    = f.text_area :title, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    span class='help-inline' = error ? f.error_message_on(:title, :class => 'text-error') : pat(:example)
+- error = @todo.errors.key?(:is_completed) && @todo.errors[:is_completed].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :is_completed, :class => 'control-label'
+  div class='controls'
+    = f.check_box :is_completed, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:is_completed, :class => 'text-error') : pat(:example)
+
+div class="form-actions"
+  = f.submit pat(:save), :class => 'btn btn-primary'
+  |&nbsp;
+  = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  |&nbsp;
+  = link_to pat(:cancel), url(:todos, :index), :class => 'btn btn-default'

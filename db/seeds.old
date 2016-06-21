@@ -1,0 +1,3 @@
+Todo.create(title: 'Create the Padrino App', is_completed: true)
+Todo.create(title: 'Prepare the Ember App', is_completed: false)
+Todo.create(title: 'Ensure the Apps Work Together', is_completed: false)
